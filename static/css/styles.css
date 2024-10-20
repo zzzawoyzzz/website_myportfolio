@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    position: sticky;  /* Make the header sticky */
+    top: 0;            /* Stick to the top of the page */
+    z-index: 1000; 
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; /* Space out the nav items and language toggle */
+    align-items: center; /* Center items vertically */
+    padding: 0 20px; /* Add some padding */
+}
+
+nav ul {
+    list-style: none;
+    display: flex; /* Ensure the list items are in a row */
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+
+
+section {
+    padding: 2rem;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+.project-grid {
+    display: block;          /* Set display to block for vertical layout */
+    margin: 0 auto;         /* Center the grid in the container */
+}
+
+.project-row {
+    display: flex;           /* Enable flexbox for each project row */
+    align-items: center;     /* Center items vertically */
+    margin: 1rem 0;         /* Add vertical space between rows */
+    opacity: 0;             /* Start with hidden */
+    transform: translateY(20px); /* Start slightly below */
+    transition: opacity 1s ease-out, transform 1s ease-out; /* Transition effect */
+}
+
+/* Class to apply when the project row is in the viewport */
+.fade-in {
+    opacity: 1;
+    transform: translateY(0); /* Return to original position */
+}
+
+.project-card {
+    background-color: #fff;
+    padding: 1.5rem;        /* Maintain padding for inner content */
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 40%;             /* Set width to 40% for the card */
+    min-width: 600px;       /* Optional: Set a maximum width for the cards */
+    min-height: 400px;
+    margin-right: 20px;     /* Space between card and description */
+}
+
+.project-desc {
+    width: 60%;             /* Set width to 60% for the description */
+    padding: 1.5rem;        /* Optional padding for description */
+    background-color: #f9f9f9; /* Optional background color */
+    min-height: 450px;
+    border-radius: 10px;    /* Optional border radius */
+}
+
+
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+
+/* Style the home section */
+#home {
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    background-color: #f4f4f4;
+}
+
+/* Container for the profile picture and text */
+.profile-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Style the circular profile picture */
+.profile-picture {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;  /* Makes the image circular */
+    object-fit: cover;   /* Ensures the image fits inside the circle */
+    margin-right: 20px;  /* Space between image and text */
+    border: 4px solid #333;  /* Optional: Add a border around the circle */
+}
+
+/* Style for the intro text */
+.intro-text {
+    max-width: 800px;  /* Limits the width of the text block */
+}
+
+.intro-text h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.intro-text p {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Style the call-to-action button */
+.cta {
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+}
+
+.cta:hover {
+    background-color: #0056b3;
+}
