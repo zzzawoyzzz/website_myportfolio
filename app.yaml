@@ -1,0 +1,16 @@
+runtime: go122  # or go120, depending on your Go version
+instance_class: F1  # Adjust this based on your app needs
+
+handlers:
+  - url: /static
+    static_dir: static
+
+  - url: /image
+    static_dir: image
+
+  # Catch-all handler for dynamic content (Gin app)
+  - url: /.*
+    script: auto
+
+env_variables:
+  GIN_MODE: release  # Set Gin to release mode for production
