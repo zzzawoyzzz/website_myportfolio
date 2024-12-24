@@ -136,7 +136,7 @@ footer {
 
 /* Style for the intro text */
 .intro-text {
-    max-width: 800px;  /* Limits the width of the text block */
+    max-width: 1000px;  /* Limits the width of the text block */
 }
 
 .intro-text h1 {
