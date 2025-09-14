@@ -24,3 +24,4 @@
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 *.md # deploy using gcloud app app.yaml
+*.sh
