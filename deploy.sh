@@ -1,4 +1,8 @@
 #!/bin/bash
+
+#  login to gcloud first then chose account # gcloud auth login
+
+
 if [ -f .env ]; then
   source .env
 else
