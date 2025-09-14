@@ -12,5 +12,9 @@ gcloud config set project $PROJECT_ID
 
 
 
-gcloud app deploy app.yaml  --project=$PROJECT_ID
+gcloud app deploy app.yaml  --project=$PROJECT_ID --quiet
 gcloud app browse
+
+# git add .
+# git commit -m "deploy script and update .gitignore to include .env"
+# git push
