@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #  login to gcloud first then chose account # gcloud auth login
+
 set -e
 
 if [ -f .env ]; then
