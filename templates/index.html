@@ -3,522 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
     <title>My Portfolio</title>
-    <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <!-- All CSS has been moved to /static/css/styles.css for better organization -->
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
-    position: sticky;  /* Make the header sticky */
-    top: 0;            /* Stick to the top of the page */
-    z-index: 1000; 
-}
-
-        nav {
-    display: flex;
-    justify-content: space-between; /* Space out the nav items and language toggle */
-    align-items: center; /* Center items vertically */
-    padding: 0 20px; /* Add some padding */
-}
-
-nav ul {
-    list-style: none;
-    display: flex; /* Ensure the list items are in a row */
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 10px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.2rem;
-}
-
-
-section {
-    padding: 2rem;
-    text-align: center;
-}
-
-h1, h2 {
-    color: #333;
-}
-
-.project-grid {
-    display: block;          /* Set display to block for vertical layout */
-    margin: 0 auto;         /* Center the grid in the container */
-}
-
-.project-row {
-    display: flex;           /* Enable flexbox for each project row */
-    align-items: center;     /* Center items vertically */
-    margin: 1rem 0;         /* Add vertical space between rows */
-    opacity: 0;             /* Start with hidden */
-    transform: translateY(20px); /* Start slightly below */
-    transition: opacity 1s ease-out, transform 1s ease-out; /* Transition effect */
-}
-
-.fade-in {
-    opacity: 1;
-    transform: translateY(0); /* Return to original position */
-}
-
-.project-card {
-    background-color: #fff;
-    padding: 1.5rem;        /* Maintain padding for inner content */
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    width: 40%;             /* Set width to 40% for the card */
-    min-width: 600px;       /* Optional: Set a maximum width for the cards */
-    min-height: 400px;
-    margin-right: 20px;     /* Space between card and description */
-}
-
-.project-desc {
-    width: 60%;             /* Set width to 60% for the description */
-    padding: 1.5rem;        /* Optional padding for description */
-    background-color: #f9f9f9; /* Optional background color */
-    min-height: 450px;
-    border-radius: 10px;    /* Optional border radius */
-}
-
-
-
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-
-/* Style the home section */
-#home {
-    padding: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-align: left;
-    background-color: #f4f4f4;
-}
-
-/* Container for the profile picture and text */
-.profile-container {
-    display: flex;
-    align-items: center;
-}
-
-/* Style the circular profile picture */
-.profile-picture {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;  /* Makes the image circular */
-    object-fit: cover;   /* Ensures the image fits inside the circle */
-    margin-right: 20px;  /* Space between image and text */
-    border: 4px solid #333;  /* Optional: Add a border around the circle */
-}
-
-/* Style for the intro text */
-.intro-text {
-    max-width: 800px;  /* Limits the width of the text block */
-}
-
-.intro-text h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-.intro-text p {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-/* Style the call-to-action button */
-.cta {
-    padding: 10px 20px;
-    margin: 10px;
-    background-color: #007BFF;
-    color: #fff;
-    text-decoration: none;
-}
-
-.cta:hover {
-    background-color: #0056b3;
-}
-
-
-        /* .profile-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 50px;
-        } */
-
-        .profile-picture {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 20px;
-            border: 4px solid rgb(51, 51, 51);
-        }
-        .profile-picture {
-        opacity: 0; /* Start hidden */
-        transform: translateY(20px); /* Move it slightly down */
-        transition: opacity 2.5s ease-out, transform 0.6s ease-out;
-        }
-
-        /* Fade-in effect for profile picture */
-        .profile-picture.fade-in {
-            opacity: 1; /* Fully visible */
-            transform: translateY(0); /* Move it back to its original position */
-        }        
-        .nickname{
-            opacity: 0.7;
-            color: #333;
-        }
-
-        /* Initially hide the intro text */
-        .intro-text {
-            opacity: 0; /* Start hidden */
-            transform: translateY(20px); /* Move it slightly down */
-            transition: opacity 1.5s ease-out, transform 0.6s ease-out; /* Transition effects */
-        }
-
-        /* Class to apply when the intro text is in the viewport */
-        .fade-in {
-            opacity: 1; /* Fully visible */
-            transform: translateY(0); /* Move it back to its original position */
-        }
-        .skill-picture{
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 20px;
-            border: 4px solid rgb(51, 51, 51);
-        }
-/* General fade-in class */
-.fade-in {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Ensure that elements start hidden and off position */
-.my_skill,
-.skill-picture,
-.skill_text ul li {
-    opacity: 0;
-    transform: translateY(20px); /* Slight offset */
-    transition: opacity 1.5s ease-out, transform 0.6s ease-out;
-}
-
-/* Specific classes for images and text */
-.skill-picture {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    border: 4px solid rgb(51, 51, 51);
-}
-.my_skill{
-    margin-bottom: 10px;
-}
-.skill_text ul {
-    padding-left: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.skill_text li {
-    margin: 5px 0;
-    list-style-position: inside;
-}
-
-/* When the fade-in class is applied */
-.fade-in {
-    opacity: 1;
-    transform: translateY(0); /* Returns to original position */
-}
-.exp-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center; /* Center the entire content horizontally */
-    min-height: 50vh; /* Ensure the height takes up full viewport */
-    justify-content: center; /* Center content vertically */
-}
-
-.exp-card {
-    background: white;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    transition: opacity 1s ease, transform 0.6s ease;
-    opacity: 0; /* Start as invisible */
-    transform: translateY(20px); /* Slightly translate down */
-    text-align: left; /* Align text to the left */
-    display: flex; /* Use flexbox */
-    flex-direction: column;
-    align-items: center; /* Center items inside the card horizontally */
-}
-
-.exp-picture {
-    width: 150px; /* Set logo width */
-    height: auto; /* Maintain aspect ratio */
-    margin-bottom: 10px; /* Space between logo and text */
-    display: block; /* Ensure it's a block-level element */
-}
-
-
-.exp-card.visible {
-    opacity: 1; /* Fade in */
-    transform: translateY(0); /* Move to original position */
-}
-
-
-
-h3 {
-    margin: 10px 0; /* Add some margin for better spacing */
-}
-
-/* List styles */
-ul {
-    padding-left: 20px; /* Add left padding for bullet alignment */
-    margin: 10px 0; /* Add space around lists */
-}
-
-li {
-    margin: 5px 0; /* Add vertical spacing between list items */
-    padding-left: 0; /* Ensure no extra padding inside list items */
-    text-indent: 0; /* Align text properly with bullets */
-}
-
-ul ul {
-    padding-left: 20px; /* Indent nested lists further */
-}
-
-        
-        .my_cert {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1s ease-out, transform 0.6s ease-out;
-        }
-
-        /* When the fade-in class is applied */
-        .fade-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        /* Style for the container to display image and text side by side */
-        .certificate-container {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-    margin-bottom: 20px;
-    opacity: 0;  /* For fade-in effect */
-    transform: translateY(20px);
-    transition: opacity 1s ease-out, transform 0.6s ease-out;
-}
-
-/* Style for the certificate image */
-.certificate-picture {
-    width: 250px;  /* Adjust size as needed */
-    height: 250px;  /* Maintain aspect ratio */
-    margin-bottom: 10px;  /* Space between image and text */
-    border-radius: 10px; /* Optional: Add rounded corners */
-}
-
-/* Style for the text next to the image */
-.certificate-container p {
-    text-align: center;  /* Center text */
-    margin: 0;
-}
-
-
-
-        /* Add fade-in effect */
-        .fade-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .certificate-picture-small {
-    width: 300px;  /* Set width to 300px */
-    height: 300px; /* Set height to 300px */
-    object-fit: cover; /* Maintain aspect ratio and cover the area */
-}
-
-.certificate-picture {
-    max-width: 500px; /* Limit the width of the images */
-    height: auto; /* Maintain aspect ratio */
-}
-
-.medium-logo {
-    width: 600px; /* Set width for the Medium logo */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: contain; /* Adjust the image to fit within the specified dimensions */
-}
-
-
-.cert-btn {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #87CEEB; /* Sky Blue */
-    color: black;
-    text-align: center;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.cert-btn:hover {
-    background-color: rgb(5, 120, 196); /* Dark Blue on hover */
-}
-
-
-
-
-        #my_achievement {
-    text-align: center; /* Center align text in the section */
-}
-
-.project-row {
-    display: flex; /* Use flexbox to align items */
-    justify-content: center; /* Center items horizontally */
-    margin: 20px 0; /* Add vertical spacing between rows */
-}
-
-.project-card {
-    flex: 1; /* Allow cards to grow and fill space */
-    max-width: 400px; /* Set a maximum width for the card */
-    margin: 0 20px; /* Add horizontal spacing */
-}
-
-.project-desc {
-    flex: 1; /* Allow description to grow and fill space */
-    min-width: 400px; /* Set a maximum width for the description */
-    display: flex; /* Use flexbox for vertical centering */
-    flex-direction: column; /* Stack items vertically */
-    justify-content: center; /* Center items vertically */
-    align-items: center; /* Center items horizontally */
-}
-
-
-.medium-logo-container {
-    display: flex; /* Use flexbox for centering */
-    justify-content: center; /* Center the logo */
-    margin-bottom: 10px; /* Space between logo and description */
-}
-
-
-
-
-
-#contact {
-    text-align: center; /* Center align text in the section */
-}
-
-.contact-links {
-    display: flex; /* Use flexbox to center elements */
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center items horizontally */
-}
-
-.contact-links h2 {
-    margin-bottom: 20px; /* Space between heading and logo */
-}
-
-.contact-links ul {
-    list-style-type: none; /* Remove default list styling */
-    padding: 0; /* Remove padding from the list */
-}
-
-
-
-.profile-icon {
-    width: 150px; /* Set width */
-    height: 150px; /* Set height */
-    border-radius: 50%; /* Make it circular */
-    object-fit: cover; /* Maintain aspect ratio */
-    margin-bottom: 20px; /* Space below the profile picture */
-    transition: transform 1s ease, opacity 1s ease; /* Smooth transform and fade-in */
-}
-
-/* Styles for the logos */
-/* Styles for the icons */
-.icon {
-    width: 80px; /* Set width */
-    height: 80px; /* Set height */
-    border-radius: 20%; /* Slightly rounded corners */
-    object-fit: cover; /* Maintain aspect ratio */
-    transition: transform 1s ease, opacity 1s ease; /* Smooth transform and fade-in */
-    margin: 5px; /* Reduced space between logos */
-}
-
-.linkedin-logo {
-    width: 80px; /* Set width */
-    height: 80px; /* Set height */
-    border-radius: 50%; /* Make it circular */
-    object-fit: cover; /* Maintain aspect ratio */
-    transition: transform 1s ease, opacity 1s ease; /* Smooth transform and fade-in */
-    margin: 5px; /* Reduced space between logos */
-}
-
-/* Optionally, if using flexbox for spacing */
-.social-container {
-    display: flex; /* Use flexbox to align logos horizontally */
-    justify-content: center; /* Center logos horizontally */
-    align-items: center; /* Center logos vertically */
-    gap: 5px; /* Use gap to control spacing between flex items */
-}
-
-/* Initial state of the logos (hidden and shifted) */
-.linkedin-logo  {
-    opacity: 0; /* Hidden by default */
-    transform: translateX(20px); /* Positioned to the right of the icon */
-}
-
-/* Apply the class to the profile icon to move it left */
-.icon.move-left {
-    transform: translateX(-10px); /* Move the icon to the left */
-}
-.linkedin-logo.move-right {
-    transform: translateX(50px); /* Move the icon to the left */
-}
-
-/* Make logos visible */
-.icon,.linkedin-logo.visible {
-    opacity: 1; /* Fade in */
-    transform: translateX(0); /* Move the logos back to the original position */
-}
 
 
 
@@ -587,7 +75,7 @@ ul ul {
     <div class="exp-grid">
         <div class="exp-card">
             <img src="image/acn logo.png" alt="Accenture Logo" class="exp-picture">
-            <h3>Data Engineer</h3>
+            <h3>Associate Data Engineer</h3>
             <p><strong>Accenture | Thailand, Bangkok</strong></p>
             <ul>
                 <li><strong>SAP Data Migration Module: MM (October 2024 - October 2025)</strong></li>
@@ -611,8 +99,7 @@ ul ul {
                 </ul>
             </ul>
         </div>
-    </div>
-    <div class="exp-grid">
+        </div>
         <div class="exp-card">
             <img src="image/iwater2.webp" alt="Inter Water Treatment Logo" class="exp-picture">
             <h3>Environmental Engineer</h3>
@@ -631,49 +118,53 @@ ul ul {
         <div>
             <h1 class="my_cert">My Certificates</h1>
         </div>
-        <div class="certificate-container"> 
-            <img src="image/databrick badge2.png" alt="Databricks Data Engineer Associate" class="certificate-picture">
-            <p><strong>Databricks Data Engineer Associate</strong></p>
-            <a href="https://credentials.databricks.com/8050b1c6-df25-4182-9688-fb4915d0228f" class="cert-btn" target="_blank">View My Certify</a>
-        </div>
-        <div class="certificate-container"> 
-            <img src="image/Associate Data Practitioner Certification.png" alt="Google Cloud Associate Data Practitioner Certification" class="certificate-picture">
-            <p><strong>Google Cloud Associate Data Practitioner</strong></p>
-            <a href="https://www.credly.com/badges/029ded0a-26df-4fbd-ad20-1bb6c2c61067/public_url" class="cert-btn" target="_blank">View My Certify</a>
-        </div>
-        <div class="certificate-container"> 
-            <img src="image/GCP_badge-removebg-preview.png" alt="Google Cloud Digital Leader" class="certificate-picture">
-            <p><strong>Google Cloud Digital Leader</strong></p>
-            <a href="https://www.credly.com/badges/9c16a3b6-e470-4c88-bcd1-322e6b12f2b9/public_url" class="cert-btn" target="_blank">View My Certify</a>
-        </div>
-        <div class="certificate-container"> 
-            <img src="image/azure badge.webp" alt="Microsoft Azure Fundamentals (AZ-900)" class="certificate-picture">
-            <p><strong>Microsoft Azure Fundamentals (AZ-900)</strong></p>
-            <a href="https://learn.microsoft.com/en-gb/users/witchayamorakotsriwan-1271/credentials/4cdc43dad005d20b?ref=https%3A%2F%2Fwww.linkedin.com%2F" class="cert-btn" target="_blank">View My Certify</a>
-        </div>
-        <div class="certificate-container"> 
-            <img src="image/azure badge.webp" alt="Microsoft Azure Data Fundamentals (DP-900)" class="certificate-picture">
-            <p><strong>Microsoft Azure Data Fundamentals (DP-900)</strong></p>
-            <a href="https://learn.microsoft.com/en-us/users/WitchayaMorakotsriwan-1271/credentials/79DF76293FCDF7F5?ref=https%3A%2F%2Fwww.linkedin.com%2F" class="cert-btn" target="_blank">View My Certify</a>
-        </div>
-        <div class="certificate-container"> 
-            <img src="image/aws badge.png" alt="AWS Certified Cloud Practitioner" class="certificate-picture">
-            <p><strong>AWS Certified Cloud Practitioner</strong></p>
-            <a href="https://www.credly.com/badges/3ef1469e-dcc7-40d7-9d30-0bdb0a1ecd10/public_url" class="cert-btn" target="_blank">View My Certify</a>
+        <div class="certificate-grid">
+            <div class="certificate-container"> 
+                <img src="image/databrick badge2.png" alt="Databricks Data Engineer Associate" class="certificate-picture">
+                <p><strong>Databricks Data Engineer Associate</strong></p>
+                <a href="https://credentials.databricks.com/8050b1c6-df25-4182-9688-fb4915d0228f" class="cert-btn" target="_blank">View My Certify</a>
+            </div>
+            <div class="certificate-container"> 
+                <img src="image/Associate Data Practitioner Certification.png" alt="Google Cloud Associate Data Practitioner Certification" class="certificate-picture">
+                <p><strong>Google Cloud Associate Data Practitioner</strong></p>
+                <a href="https://www.credly.com/badges/029ded0a-26df-4fbd-ad20-1bb6c2c61067/public_url" class="cert-btn" target="_blank">View My Certify</a>
+            </div>
+            <div class="certificate-container"> 
+                <img src="image/GCP_badge-removebg-preview.png" alt="Google Cloud Digital Leader" class="certificate-picture">
+                <p><strong>Google Cloud Digital Leader</strong></p>
+                <a href="https://www.credly.com/badges/9c16a3b6-e470-4c88-bcd1-322e6b12f2b9/public_url" class="cert-btn" target="_blank">View My Certify</a>
+            </div>
+            <div class="certificate-container"> 
+                <img src="image/azure badge.webp" alt="Microsoft Azure Fundamentals (AZ-900)" class="certificate-picture">
+                <p><strong>Microsoft Azure Fundamentals (AZ-900)</strong></p>
+                <a href="https://learn.microsoft.com/en-gb/users/witchayamorakotsriwan-1271/credentials/4cdc43dad005d20b?ref=https%3A%2F%2Fwww.linkedin.com%2F" class="cert-btn" target="_blank">View My Certify</a>
+            </div>
+            <div class="certificate-container"> 
+                <img src="image/azure badge.webp" alt="Microsoft Azure Data Fundamentals (DP-900)" class="certificate-picture">
+                <p><strong>Microsoft Azure Data Fundamentals (DP-900)</strong></p>
+                <a href="https://learn.microsoft.com/en-us/users/WitchayaMorakotsriwan-1271/credentials/79DF76293FCDF7F5?ref=https%3A%2F%2Fwww.linkedin.com%2F" class="cert-btn" target="_blank">View My Certify</a>
+            </div>
+            <div class="certificate-container"> 
+                <img src="image/aws badge.png" alt="AWS Certified Cloud Practitioner" class="certificate-picture">
+                <p><strong>AWS Certified Cloud Practitioner</strong></p>
+                <a href="https://www.credly.com/badges/3ef1469e-dcc7-40d7-9d30-0bdb0a1ecd10/public_url" class="cert-btn" target="_blank">View My Certify</a>
+            </div>
         </div>
     </section>
     
     
     
     
-    
+
     <section id="my_achievement">
         <h2>My Achievement</h2>
         <div class="project-grid">
             <div class="project-row">
                 <div class="project-card">
                     <h3>My Achievement</h3>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/C18QCjh6OIA?si=hHhG3yeIwKZR8KiH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/C18QCjh6OIA?si=hHhG3yeIwKZR8KiH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
                 </div>
                 <div class="project-desc">
                     <img src="image/cloud live cover.webp" alt="Your Name" class="certificate-picture-small">
@@ -699,50 +190,39 @@ ul ul {
         </div>
     </section>
     
-    
-    
-    
+</section>
 
+<section id="contact">
+    <!-- Links to Other Websites with Logos -->
+    <div class="contact-links">
+        <h2>Connect with Me</h2>
+        <a target="_blank">
+            <img src="image/1673369270465.jpeg" alt="My Profile" class="profile-icon">
+        </a>
+        <h3>I'm lazy when it comes to working, but I am extremely passionate about learning to achieve the best performance and the highest quality of tasks.</h3>
+        <h3>Click On Logo Below</h3>
+        <ul>
+            <li class="social-container">
+                
+                <!-- Medium logo -->
+                <a href="https://www.youtube.com/@awoystorage9936" target="_blank">
+                    <img src="image/youtube_social_circle_red.png" alt="Medium Logo" class="icon">
+                </a>
+                <!-- LinkedIn logo -->
+                <a href="https://www.linkedin.com/in/witchaya-m/" target="_blank">
+                    <img src="image/linkedin.png" alt="LinkedIn Logo" class="linkedin-logo">
+                </a>
 
-    <section id="contact">
-        <!-- Links to Other Websites with Logos -->
-        <div class="contact-links">
-            <h2>Connect with Me</h2>
-            <a target="_blank">
-                <img src="image/1673369270465.jpeg" alt="My Profile" class="profile-icon">
-            </a>
-            <h3>I'm lazy when it comes to working, but I am extremely passionate about learning to achieve the best performance and the highest quality of tasks.</h3>
-            <h3>Click On Logo Below</h3>
-            <ul>
-                <li class="social-container">
-                    
-                    <!-- Medium logo -->
-                    <a href="https://www.youtube.com/@awoystorage9936" target="_blank">
-                        <img src="image/youtube_social_circle_red.png" alt="Medium Logo" class="icon">
-                    </a>
-                    <!-- LinkedIn logo -->
-                    <a href="https://www.linkedin.com/in/witchaya-m/" target="_blank">
-                        <img src="image/linkedin.png" alt="LinkedIn Logo" class="linkedin-logo">
-                    </a>
+            </li>
+        </ul>
+    </div>
+</section>
 
-                </li>
-            </ul>
-        </div>
-    </section>
-    
-    
-    
-    
-    
-    
-
-    
-
-    <footer>
-        <p>Frontend Using : HTML,CSS,java script </p>
-        <p>Backend Using : Go language</p>
-        <p>&copy; 2025 Witchaya. All rights reserved.</p>
-    </footer>
+<footer>
+    <p>Frontend Using : HTML,CSS,java script </p>
+    <p>Backend Using : Go language</p>
+    <p>&copy; 2025 Witchaya. All rights reserved.</p>
+</footer>
 
     <script>
 // from js
