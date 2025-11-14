@@ -41,6 +41,26 @@
         </div>
     </section>
 
+    <!-- Resume Section -->
+    <section id="resume" class="resume-section">
+        <div class="resume-container">
+            <h1 class="resume-title">Download My Resume</h1>
+            <img src="image/resume icon.png" alt="Resume Icon" class="resume-icon">
+            <p class="resume-description">Get the latest version of my resume with detailed work experience and certifications.</p>
+            <a href="/download-resume" 
+               class="resume-download-btn">
+                <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Download Resume (PDF)
+            </a>
+            <p class="resume-update">Last updated: 11 November 2025</p>
+        </div>
+    </section>
+
+
     <section id="skill">
         <h1 class="my_skill">My Skill</h1>
     
@@ -65,32 +85,45 @@
 
         </div>
     </section>
-    
-    
+
         
     </section>
 <!-- my exp -->
 <section id="my_exp">
     <h2>My Experience</h2>
+    <!-- up comming de** -->
     <div class="exp-grid">
+        <div class="exp-card">
+            <img src="image/deloitte logo.png" alt="Deloitte Logo" class="exp-picture">
+            <h3>T&T Consultant - Artificial Intelligence & Data - TH</h3>
+            <p><strong>Deloitte | Thailand, Bangkok</strong></p>
+            <ul>
+                <li><strong>Data Engineer and AI (1 December 2025 - Present)</strong></li>
+                <ul>
+                    <li>no informatation yet coming soon i'll going to update later</li>
+                </ul>
+            </ul>
+        </div>
+        </div>
+        <!-- accenture exp -->
         <div class="exp-card">
             <img src="image/acn logo.png" alt="Accenture Logo" class="exp-picture">
             <h3>Associate Data Engineer</h3>
             <p><strong>Accenture | Thailand, Bangkok</strong></p>
             <ul>
-                <li><strong>SAP Data Migration Module: MM (October 2024 - October 2025)</strong></li>
+                <li><strong>SAP Data Migration Module: MM (14 October 2024 - 25 October 2025)</strong></li>
                 <ul>
                     <li>Migrated data from SAP ECC 6.0 to S/4 HANA.</li>
                     <li>Transformed and cleansed data into the correct format for S/4 HANA using Python and SQL.</li>
                     <li>Developed a GUI-based tool to automate manual tasks, reducing processing time by 60% <br>through auto extraction and transformation logic.</li>
                 </ul>
-                <li><strong>Data Engineer (April 2024 - October 2024)</strong></li>
+                <li><strong>Data Engineer (16 April 2024 - 11 October 2024)</strong></li>
                 <ul>
                     <li>Migrated ETL processes from on-premises SSIS to Databricks.</li>
                     <li>Developed daily ETL pipelines using Apache Airflow and Databricks, with data stored in Google BigQuery.</li>
                     <li>Optimized SQL code for enhanced performance and best-practice solutions.</li>
                 </ul>
-                <li><strong>Application Design (April 2024)</strong></li>
+                <li><strong>Application Design (july 2020 -  April 2024)</strong></li>
                 <ul>
                     <li>Conducted requirements analysis and designed technical specifications.</li>
                     <li>Documented and designed API workflows for banking features.</li>
@@ -100,10 +133,12 @@
             </ul>
         </div>
         </div>
+
+        <!-- inter water exp -->
         <div class="exp-card">
             <img src="image/iwater2.webp" alt="Inter Water Treatment Logo" class="exp-picture">
             <h3>Environmental Engineer</h3>
-            <p><strong>Inter Water Treatment | Thailand, Khon Kaen (March 2019 – January 2022 )</strong></p>
+            <p><strong>Inter Water Treatment | Thailand, Khon Kaen (March 2019 - January 2022 )</strong></p>
             <ul>
                 <li>Developed solutions for treating raw water from groundwater and surface water.</li>
                 <li>Designed water treatment systems, estimated costs, and managed installations.</li>
@@ -244,6 +279,12 @@
             if (isInViewport(profileContainer)) {
                 profilePicture.classList.add('fade-in');
                 introText.classList.add('fade-in');
+            }
+
+            // Resume section fade-in
+            const resumeContainer = document.querySelector('.resume-container');
+            if (resumeContainer && isInViewport(resumeContainer)) {
+                resumeContainer.classList.add('fade-in');
             }
         }
 
@@ -466,10 +507,10 @@ window.addEventListener('scroll', function() {
         linkedinLogo.classList.remove('visible');
         linkedinIcon.classList.remove('visible');
     }
-});
-
-
+})
 
     </script>
 </body>
 </html>
+
+

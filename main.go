@@ -1,18 +1,17 @@
 package main
 
 import (
-	"net/http"
+	"my_awoy_portfolio_2025/routes"
 
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	r := gin.Default()
-	r.Static("/static", "./static")
-	r.Static("/image", "./image")
-	r.LoadHTMLGlob("templates/*")
-	r.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", nil)
-	})
+
+	// Setup all routes
+	routes.SetupRoutes(r)
+
+	// Start server
 	r.Run(":8081")
 }
