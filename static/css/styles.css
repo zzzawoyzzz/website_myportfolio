@@ -585,6 +585,162 @@ footer {
     list-style-position: inside;
 }
 
+/* =========================
+RESUME SECTION
+========================= */
+
+.resume-section {
+    background: #f4f4f4;
+    padding: 40px 20px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.resume-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    padding: 50px 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease-out, transform 0.8s ease-out;
+}
+
+.resume-container.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.resume-title {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: bold;
+    
+}
+
+.resume-icon {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin: 20px auto;
+    display: block;
+}
+
+.resume-description {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.resume-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 40px;
+    background-color: #87CEEB;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.resume-download-btn:hover {
+    background-color: rgb(5, 120, 196);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.resume-download-btn:active {
+    transform: translateY(-1px);
+}
+
+.download-icon {
+    width: 24px;
+    height: 24px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.resume-update {
+    margin-top: 25px;
+    font-size: 0.95rem;
+    color: #999;
+    font-style: italic;
+}
+
+/* Responsive adjustments for resume section */
+@media screen and (max-width: 768px) {
+    .resume-section {
+        padding: 60px 15px;
+        margin: 20px 0;
+    }
+    
+    .resume-container {
+        padding: 40px 25px;
+    }
+    
+    .resume-title {
+        font-size: 2rem;
+    }
+    
+    .resume-description {
+        font-size: 1rem;
+    }
+    
+    .resume-download-btn {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .resume-section {
+        padding: 40px 10px;
+    }
+    
+    .resume-container {
+        padding: 30px 20px;
+    }
+    
+    .resume-title {
+        font-size: 1.7rem;
+    }
+    
+    .resume-description {
+        font-size: 0.95rem;
+    }
+    
+    .resume-download-btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+        gap: 8px;
+    }
+    
+    .download-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
 /* Experience grid and cards */
 .exp-grid {
     display: flex;
@@ -616,6 +772,7 @@ footer {
     height: auto;
     margin-bottom: 10px;
     display: block;
+    margin-top: 10px;
 }
 
 /* Certificate styles */
@@ -784,8 +941,8 @@ footer {
 }
 
 /* =========================
-   UTILITY CLASSES
-   ========================= */
+UTILITY CLASSES
+========================= */
 
 /* Typography utilities */
 .my_skill {
