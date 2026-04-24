@@ -18,4 +18,5 @@ func SetupRoutes(r *gin.Engine) {
 	// Routes
 	r.GET("/", handlers.Home)
 	r.GET("/download-resume", handlers.DownloadResume)
+	r.GET("/sc2", handlers.DownloadSC2Hotkeys)
 }
