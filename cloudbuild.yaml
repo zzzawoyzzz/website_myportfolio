@@ -1,3 +1,12 @@
 steps:
-- name: 'ubuntu'
-  args: ['echo', 'Hello World from Cloud Build!']
+# ขั้นตอนที่ 1: รันคำสั่งทดสอบ (ตัวอย่างเช่น go test)
+- name: 'golang:1.25' # เปลี่ยนเวอร์ชันตามที่คุณใช้
+  args: ['go', 'test', './...']
+
+# ขั้นตอนที่ 2: Deploy ไปยัง App Engine
+- name: 'gcr.io/cloudbuilders/gcloud'
+  args: ['app', 'deploy', 'app.yaml', '--quiet']
+
+# เพิ่ม Options เพื่อแก้ปัญหา Service Account Logging
+options:
+  logging: CLOUD_LOGGING_ONLY
