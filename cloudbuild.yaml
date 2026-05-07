@@ -4,7 +4,7 @@ steps:
   args: ['go', 'test', './...']
 
 # ขั้นตอนที่ 2: Deploy ไปยัง App Engine
-- name: 'gcr.io/cloudbuilders/gcloud'
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   args: ['app', 'deploy', 'app.yaml', '--project=$PROJECT_ID', '--quiet']
 
 # เพิ่ม Options เพื่อแก้ปัญหา Service Account Logging
