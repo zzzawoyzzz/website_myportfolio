@@ -5,7 +5,7 @@ steps:
 
 # ขั้นตอนที่ 2: Deploy ไปยัง App Engine
 - name: 'gcr.io/cloudbuilders/gcloud'
-  args: ['app', 'deploy', 'app.yaml', '--quiet']
+  args: ['app', 'deploy', 'app.yaml', '--project=$PROJECT_ID', '--quiet']
 
 # เพิ่ม Options เพื่อแก้ปัญหา Service Account Logging
 options:
