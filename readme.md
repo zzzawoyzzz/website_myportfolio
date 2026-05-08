@@ -20,29 +20,33 @@ This is a personal portfolio website built with Go (Gin framework) and deployed 
 
 This project follows Go best practices with a clean separation of concerns.
 
-```
+```text
 website_myportfolio/
 ├── main.go              # Application entry point
-├── app.yaml            # App Engine configuration
-├── deploy.sh           # Automated deployment script
-├── go.mod              # Go module dependencies
-├── go.sum              # Dependency checksums
-├── readme.md           # This file
-├── .env                # Environment variables (not in git)
-├── handlers/           # HTTP request handlers
+├── app.yaml             # App Engine configuration
+├── cloudbuild.yaml      # Cloud Build CI/CD configuration
+├── deploy.sh            # Automated deployment script
+├── go.mod               # Go module dependencies
+├── go.sum               # Dependency checksums
+├── readme.md            # This file
+├── .env                 # Environment variables (not in git)
+├── .gcloudignore        # Exclude files from GCP deployment
+├── .gitignore           # Exclude files from Git repository
+├── .github/             # GitHub configuration directory
+├── handlers/            # HTTP request handlers
 │   ├── home_handler.go
 │   └── resume_handler.go
-├── routes/             # Route definitions
+├── routes/              # Route definitions
 │   └── routes.go
-├── static/             # Static assets (CSS, JS)
+├── static/              # Static assets (CSS, JS)
 │   ├── css/
 │   │   └── styles.css
 │   └── js/
 │       └── script.js
-├── templates/          # HTML templates
+├── templates/           # HTML templates
 │   └── index.html
-├── image/              # Image assets
-└── file/               # Resume PDF files for deployment
+├── image/               # Image assets
+└── file/                # Resume PDF files for deployment
 ```
 
 ## Architecture
