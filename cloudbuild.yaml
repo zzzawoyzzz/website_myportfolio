@@ -1,13 +1,29 @@
-steps:
-# ขั้นตอนที่ 1: รันคำสั่งทดสอบ (ตัวอย่างเช่น go test)
-- name: 'golang:1.25' # เปลี่ยนเวอร์ชันตามที่คุณใช้
-  args: ['go', 'test', './...']
+substitutions:
+  _RESUME_BUCKET_NAME: 'my-resume-for-download'
 
-# ขั้นตอนที่ 2: Deploy ไปยัง App Engine
+steps:
+# ขั้นตอนที่ 1: อัปโหลด resume ขึ้น GCS
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: 'bash'
+  args:
+    - '-c'
+    - |
+      set -e
+      RESUME_FILE=$$(ls file/*.pdf | head -n 1)
+      if [ -z "$$RESUME_FILE" ]; then
+        echo "Error: No PDF found in ./file/"
+        exit 1
+      fi
+      echo "Found resume: $$RESUME_FILE"
+      gsutil -m rm gs://${_RESUME_BUCKET_NAME}/*.pdf 2>/dev/null || echo "No old files"
+      gsutil cp "$$RESUME_FILE" gs://${_RESUME_BUCKET_NAME}/
+      gsutil acl ch -u AllUsers:R gs://${_RESUME_BUCKET_NAME}/$$(basename "$$RESUME_FILE")
+      echo "Resume uploaded!"
+
+# ขั้นตอนที่ 2: Deploy ขึ้น App Engine
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'gcloud'
-  args: ['app', 'deploy', 'app.yaml', '--project=$PROJECT_ID', '--quiet']
+  args: ['app', 'deploy', 'app.yaml', '--quiet']
 
-# เพิ่ม Options เพื่อแก้ปัญหา Service Account Logging
 options:
   logging: CLOUD_LOGGING_ONLY
